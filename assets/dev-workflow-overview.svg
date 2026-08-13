@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1080" viewBox="0 0 1400 1080">
+  <defs>
+    <style>
+      text { font-family: 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 34px; font-weight: 700; fill: #1f2937; }
+      .subtitle { font-size: 18px; fill: #6b7280; }
+      .section { font-size: 20px; font-weight: 700; fill: #1f2937; }
+      .card-title { font-size: 19px; font-weight: 700; }
+      .card-sub { font-size: 13px; fill: #6b7280; }
+      .card-flow { font-size: 12.5px; fill: #374151; }
+      .badge { font-size: 22px; font-weight: 800; fill: #ffffff; }
+      .flow-arrow { stroke: #94a3b8; stroke-width: 2; fill: none; }
+      .flow-arrow-head { fill: #94a3b8; }
+      .bottom-text { font-size: 14px; fill: #1f2937; font-weight: 600; }
+      .bottom-sub { font-size: 11.5px; fill: #6b7280; }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1400" height="1080" fill="#ffffff"/>
+  <rect width="1400" height="8" fill="#2563eb"/>
+
+  <!-- header -->
+  <text x="700" y="58" text-anchor="middle" class="title">dev-workflow 软件工程统一工作流</text>
+  <text x="700" y="88" text-anchor="middle" class="subtitle">Unified Software Engineering Workflow · 七场景 · 7 Scenarios · 确认后动手 · Confirm Before Acting</text>
+
+  <!-- user request entry -->
+  <rect x="520" y="118" width="360" height="52" rx="26" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="700" y="142" text-anchor="middle" class="card-title" fill="#1d4ed8">用户请求 / User Request</text>
+  <text x="700" y="160" text-anchor="middle" class="card-sub">写代码 · 修 Bug · 审查 · 设计 · 交接 · 测试 · 复盘</text>
+
+  <!-- arrow down to router -->
+  <line x1="700" y1="170" x2="700" y2="196" class="flow-arrow"/>
+  <polygon points="700,204 694,194 706,194" class="flow-arrow-head"/>
+
+  <!-- scene router -->
+  <rect x="470" y="204" width="460" height="50" rx="10" fill="#2563eb"/>
+  <text x="700" y="226" text-anchor="middle" class="card-title" fill="#ffffff">场景路由 Scene Router</text>
+  <text x="700" y="245" text-anchor="middle" class="card-sub" fill="#bfdbfe">按请求语义自动判定场景 · 复合任务按阶段切换</text>
+
+  <!-- arrows from router to row 1 -->
+  <line x1="560" y1="254" x2="205" y2="292" class="flow-arrow"/>
+  <polygon points="198,296 212,292 202,302" class="flow-arrow-head"/>
+  <line x1="640" y1="254" x2="525" y2="292" class="flow-arrow"/>
+  <polygon points="518,296 532,292 522,302" class="flow-arrow-head"/>
+  <line x1="700" y1="254" x2="700" y2="292" class="flow-arrow"/>
+  <polygon points="700,300 694,290 706,290" class="flow-arrow-head"/>
+  <line x1="760" y1="254" x2="875" y2="292" class="flow-arrow"/>
+  <polygon points="882,296 868,292 878,302" class="flow-arrow-head"/>
+  <line x1="840" y1="254" x2="1195" y2="292" class="flow-arrow"/>
+  <polygon points="1202,296 1188,292 1198,302" class="flow-arrow-head"/>
+
+  <!-- scenario cards row 1: A B C D -->
+  <!-- A -->
+  <rect x="60" y="300" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="60" y="300" width="290" height="6" rx="3" fill="#2563eb"/>
+  <circle cx="98" cy="340" r="20" fill="#2563eb"/>
+  <text x="98" y="347" text-anchor="middle" class="badge">A</text>
+  <text x="128" y="336" class="card-title" fill="#1f2937">新功能开发</text>
+  <text x="128" y="355" class="card-sub">New Feature</text>
+  <line x1="80" y1="375" x2="330" y2="375" stroke="#e2e8f0"/>
+  <text x="80" y="400" class="card-flow">理解现状 → 需求澄清</text>
+  <text x="80" y="424" class="card-flow">输出结构化方案（任务拆解）</text>
+  <text x="80" y="448" class="card-flow">8 角色跨部门评审 → 确认</text>
+  <text x="80" y="472" class="card-flow">实施（复用优先·最小改动）</text>
+  <text x="80" y="496" class="card-flow">自测 + 回归硬门禁</text>
+  <text x="80" y="524" class="card-flow" fill="#2563eb">→ UPDATE_LOG + 保鲜联动</text>
+
+  <!-- B -->
+  <rect x="370" y="300" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="370" y="300" width="290" height="6" rx="3" fill="#dc2626"/>
+  <circle cx="408" cy="340" r="20" fill="#dc2626"/>
+  <text x="408" y="347" text-anchor="middle" class="badge">B</text>
+  <text x="438" y="336" class="card-title" fill="#1f2937">单点修 Bug</text>
+  <text x="438" y="355" class="card-sub">Bug Fix</text>
+  <line x1="390" y1="375" x2="640" y2="375" stroke="#e2e8f0"/>
+  <text x="390" y="400" class="card-flow">复现 + 报障信息收集</text>
+  <text x="390" y="424" class="card-flow">根因定位（文件+行号）</text>
+  <text x="390" y="448" class="card-flow">最小修复方案 → 确认</text>
+  <text x="390" y="472" class="card-flow">修复（修根因不掩症状）</text>
+  <text x="390" y="496" class="card-flow">原场景反证 + 回归验证</text>
+  <text x="390" y="524" class="card-flow" fill="#dc2626">→ UPDATE_LOG（根因必填）</text>
+
+  <!-- C -->
+  <rect x="680" y="300" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="680" y="300" width="290" height="6" rx="3" fill="#d97706"/>
+  <circle cx="718" cy="340" r="20" fill="#d97706"/>
+  <text x="718" y="347" text-anchor="middle" class="badge">C</text>
+  <text x="748" y="336" class="card-title" fill="#1f2937">全量排查修复</text>
+  <text x="748" y="355" class="card-sub">Audit &amp; Fix</text>
+  <line x1="700" y1="375" x2="950" y2="375" stroke="#e2e8f0"/>
+  <text x="700" y="400" class="card-flow">理解上下文 → 系统排查</text>
+  <text x="700" y="424" class="card-flow">11 大维度（含安全/UI/性能）</text>
+  <text x="700" y="448" class="card-flow">结构化问题清单 P0~P3</text>
+  <text x="700" y="472" class="card-flow">停下 → 用户确认修复项</text>
+  <text x="700" y="496" class="card-flow">逐项修复 + 回归验证</text>
+  <text x="700" y="524" class="card-flow" fill="#d97706">→ 修复报告 + UPDATE_LOG</text>
+
+  <!-- D -->
+  <rect x="990" y="300" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="990" y="300" width="290" height="6" rx="3" fill="#7c3aed"/>
+  <circle cx="1028" cy="340" r="20" fill="#7c3aed"/>
+  <text x="1028" y="347" text-anchor="middle" class="badge">D</text>
+  <text x="1058" y="336" class="card-title" fill="#1f2937">设计方案</text>
+  <text x="1058" y="355" class="card-sub">Design Doc</text>
+  <line x1="1010" y1="375" x2="1260" y2="375" stroke="#e2e8f0"/>
+  <text x="1010" y="400" class="card-flow">理解现状（禁止编造）</text>
+  <text x="1010" y="424" class="card-flow">确认范围与一期边界</text>
+  <text x="1010" y="448" class="card-flow">大纲输出 → 用户确认</text>
+  <text x="1010" y="472" class="card-flow">逐章生成（C4 图 + 表格）</text>
+  <text x="1010" y="496" class="card-flow">一致性自检</text>
+  <text x="1010" y="524" class="card-flow" fill="#7c3aed">→ 《总体设计方案》vX</text>
+
+  <!-- arrows row1 to row2 -->
+  <line x1="205" y1="550" x2="205" y2="600" class="flow-arrow"/>
+  <polygon points="205,608 199,598 211,598" class="flow-arrow-head"/>
+  <line x1="555" y1="550" x2="555" y2="600" class="flow-arrow"/>
+  <polygon points="555,608 549,598 561,598" class="flow-arrow-head"/>
+  <line x1="875" y1="550" x2="875" y2="600" class="flow-arrow"/>
+  <polygon points="875,608 869,598 881,598" class="flow-arrow-head"/>
+  <line x1="1135" y1="550" x2="1135" y2="600" class="flow-arrow"/>
+  <polygon points="1135,608 1129,598 1141,598" class="flow-arrow-head"/>
+
+  <!-- scenario cards row 2: E F G -->
+  <!-- E -->
+  <rect x="60" y="608" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="60" y="608" width="290" height="6" rx="3" fill="#0891b2"/>
+  <circle cx="98" cy="648" r="20" fill="#0891b2"/>
+  <text x="98" y="655" text-anchor="middle" class="badge">E</text>
+  <text x="128" y="644" class="card-title" fill="#1f2937">技术架构交接</text>
+  <text x="128" y="663" class="card-sub">Arch Handover</text>
+  <line x1="80" y1="683" x2="330" y2="683" stroke="#e2e8f0"/>
+  <text x="80" y="708" class="card-flow">确认盘点范围与分册</text>
+  <text x="80" y="732" class="card-flow">信息采集（代码/配置/数据）</text>
+  <text x="80" y="756" class="card-flow">大纲确认 → 逐册生成</text>
+  <text x="80" y="780" class="card-flow">AI 索引（快速定位表）</text>
+  <text x="80" y="804" class="card-flow">C4 图 + 影响映射表</text>
+  <text x="80" y="832" class="card-flow" fill="#0891b2">→ docs/architecture/ 7 分册</text>
+
+  <!-- F -->
+  <rect x="370" y="608" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="370" y="608" width="290" height="6" rx="3" fill="#16a34a"/>
+  <circle cx="408" cy="648" r="20" fill="#16a34a"/>
+  <text x="408" y="655" text-anchor="middle" class="badge">F</text>
+  <text x="438" y="644" class="card-title" fill="#1f2937">自动化测试</text>
+  <text x="438" y="663" class="card-sub">Automated Testing</text>
+  <line x1="390" y1="683" x2="640" y2="683" stroke="#e2e8f0"/>
+  <text x="390" y="708" class="card-flow">测试策略与分层边界</text>
+  <text x="390" y="732" class="card-flow">框架适配项目技术栈</text>
+  <text x="390" y="756" class="card-flow">用例：正常+边界+异常</text>
+  <text x="390" y="780" class="card-flow">覆盖率分析 → 补测清单</text>
+  <text x="390" y="804" class="card-flow">TDD 红-绿-重构（可选）</text>
+  <text x="390" y="832" class="card-flow" fill="#16a34a">→ CI 指引 + 回归门禁</text>
+
+  <!-- G -->
+  <rect x="680" y="608" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="680" y="608" width="290" height="6" rx="3" fill="#db2777"/>
+  <circle cx="718" cy="648" r="20" fill="#db2777"/>
+  <text x="718" y="655" text-anchor="middle" class="badge">G</text>
+  <text x="748" y="644" class="card-title" fill="#1f2937">回顾性</text>
+  <text x="748" y="663" class="card-sub">Retrospective</text>
+  <line x1="700" y1="683" x2="950" y2="683" stroke="#e2e8f0"/>
+  <text x="700" y="708" class="card-flow">四类：即时/迭代/事故/健康</text>
+  <text x="700" y="732" class="card-flow">采集真实材料</text>
+  <text x="700" y="756" class="card-flow">按模板输出复盘报告</text>
+  <text x="700" y="780" class="card-flow">改进项有行动与时机</text>
+  <text x="700" y="804" class="card-flow">事故复盘不归咎个人</text>
+  <text x="700" y="832" class="card-flow" fill="#db2777">→ 确认落点 + 记录</text>
+
+  <!-- arrows row2 to bottom -->
+  <line x1="205" y1="858" x2="205" y2="906" class="flow-arrow"/>
+  <line x1="555" y1="858" x2="555" y2="906" class="flow-arrow"/>
+  <line x1="875" y1="858" x2="875" y2="906" class="flow-arrow"/>
+  <line x1="1135" y1="858" x2="1135" y2="906" class="flow-arrow"/>
+  <line x1="1200" y1="860" x2="1290" y2="906" class="flow-arrow"/>
+  <polygon points="1295,910 1284,903 1292,916" class="flow-arrow-head"/>
+
+  <!-- core principles bar -->
+  <rect x="60" y="906" width="1280" height="72" rx="12" fill="#1e293b"/>
+  <text x="80" y="932" class="section" fill="#ffffff">统一底线 Core Principles</text>
+  <text x="80" y="958" fill="#cbd5e1" font-size="14.5px">确认闸门 Confirm Gate · 基于证据 Evidence-Based · 实施纪律 Discipline · 高风险二次确认 Re-confirm High-Risk · 回归测试硬门禁 Regression Gate · 完成标志 Done Criteria</text>
+
+  <!-- artifacts row -->
+  <rect x="60" y="1000" width="400" height="58" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="80" y="1022" class="bottom-text">角色知识库 Role Knowledge</text>
+  <text x="80" y="1042" class="bottom-sub">.devflow/agents/*.md + config.yaml（8 角色）</text>
+  <rect x="500" y="1000" width="400" height="58" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="520" y="1022" class="bottom-text">更新记录 Update Log</text>
+  <text x="520" y="1042" class="bottom-sub">UPDATE_LOG.md（最新在前，统一模板）</text>
+  <rect x="940" y="1000" width="400" height="58" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="960" y="1022" class="bottom-text">交接文档集 Handover Docs</text>
+  <text x="960" y="1042" class="bottom-sub">docs/architecture/ 7 分册 + C4 图 + 影响映射表</text>
+</svg>
