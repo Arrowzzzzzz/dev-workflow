@@ -1,0 +1,14 @@
+# .devflow/agents/config.yaml —— 角色 → AI 模型映射
+# 使用方式：复制本文件到项目根目录 .devflow/agents/config.yaml
+# 留空（""）或删除该行 = 使用当前 HARNESS 平台默认模型
+# 模型标识必须与运行平台支持的名称一致
+
+models:
+  frontend: ""     # 前端 UI
+  backend: ""      # 后端开发
+  database: ""     # 数据库 / DBA
+  qa: ""           # 测试 QA
+  architect: ""    # 架构师
+  devops: ""       # DevOps / 运维
+  security: ""     # 安全
+  product: ""      # 产品
