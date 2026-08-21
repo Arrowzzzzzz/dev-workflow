@@ -22,12 +22,12 @@
 
   <!-- header -->
   <text x="700" y="58" text-anchor="middle" class="title">dev-workflow 软件工程统一工作流</text>
-  <text x="700" y="88" text-anchor="middle" class="subtitle">Unified Software Engineering Workflow · 七场景 · 7 Scenarios · 确认后动手 · Confirm Before Acting</text>
+  <text x="700" y="88" text-anchor="middle" class="subtitle">Unified Software Engineering Workflow · 八场景 · 8 Scenarios · 确认后动手 · Confirm Before Acting</text>
 
   <!-- user request entry -->
   <rect x="520" y="118" width="360" height="52" rx="26" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
   <text x="700" y="142" text-anchor="middle" class="card-title" fill="#1d4ed8">用户请求 / User Request</text>
-  <text x="700" y="160" text-anchor="middle" class="card-sub">写代码 · 修 Bug · 审查 · 设计 · 交接 · 测试 · 复盘</text>
+  <text x="700" y="160" text-anchor="middle" class="card-sub">写代码 · 修 Bug · 审查 · 设计 · 交接 · 测试 · 复盘 · 规格审查</text>
 
   <!-- arrow down to router -->
   <line x1="700" y1="170" x2="700" y2="196" class="flow-arrow"/>
@@ -166,6 +166,21 @@
   <text x="700" y="780" class="card-flow">改进项有行动与时机</text>
   <text x="700" y="804" class="card-flow">事故复盘不归咎个人</text>
   <text x="700" y="832" class="card-flow" fill="#db2777">→ 确认落点 + 记录</text>
+
+  <!-- H -->
+  <rect x="990" y="608" width="290" height="250" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="990" y="608" width="290" height="6" rx="3" fill="#0ea5e9"/>
+  <circle cx="1028" cy="648" r="20" fill="#0ea5e9"/>
+  <text x="1028" y="655" text-anchor="middle" class="badge">H</text>
+  <text x="1058" y="644" class="card-title" fill="#1f2937">规格审查</text>
+  <text x="1058" y="663" class="card-sub">Spec Review</text>
+  <line x1="1010" y1="683" x2="1260" y2="683" stroke="#e2e8f0"/>
+  <text x="1010" y="708" class="card-flow">理解对象与基准（禁止编造）</text>
+  <text x="1010" y="732" class="card-flow">按对象裁剪审查维度</text>
+  <text x="1010" y="756" class="card-flow">逐维审查（证据 / 行号）</text>
+  <text x="1010" y="780" class="card-flow">结构化报告 P0~P3</text>
+  <text x="1010" y="804" class="card-flow">停下 → 用户确认处置</text>
+  <text x="1010" y="832" class="card-flow" fill="#0ea5e9">→ UPDATE_LOG + 保鲜联动</text>
 
   <!-- arrows row2 to bottom -->
   <line x1="205" y1="858" x2="205" y2="906" class="flow-arrow"/>

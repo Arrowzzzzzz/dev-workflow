@@ -1,13 +1,15 @@
 # 🛠️ dev-workflow — 软件工程统一工作流 · Unified Software Engineering Workflow
 
-> 面向 AI 编程助手的「软件工程统一工作流」Skill：将新功能开发、Bug 修复、全量排查、方案设计、架构交接、自动化测试、复盘回顾七类任务，收敛为**一套可强制执行的标准化流程**——先理解现状、再输出方案、经用户确认后才动手、回归测试全部通过才算完成。
+> 面向 AI 编程助手的「软件工程统一工作流」Skill：将新功能开发、Bug 修复、全量排查、方案设计、架构交接、自动化测试、复盘回顾、规格审查八类任务，收敛为**一套可强制执行的标准化流程**——先理解现状、再输出方案、经用户确认后才动手、回归测试全部通过才算完成。
 >
-> A workflow skill for AI coding assistants: it converges seven types of tasks — new feature development, bug fixing, full audit, design docs, architecture handover, automated testing, and retrospectives — into **one enforceable, standardized process**: understand first, propose a plan, act only after user confirmation, and consider a task done only when regression tests all pass.
+> A workflow skill for AI coding assistants: it converges eight types of tasks — new feature development, bug fixing, full audit, design docs, architecture handover, automated testing, retrospectives, and spec review — into **one enforceable, standardized process**: understand first, propose a plan, act only after user confirmation, and consider a task done only when regression tests all pass.
 
 ![license](https://img.shields.io/badge/license-MIT-brightgreen)
 ![type](https://img.shields.io/badge/type-AI%20Skill-blue)
-![scenarios](https://img.shields.io/badge/scenarios-7-orange)
+![scenarios](https://img.shields.io/badge/scenarios-8-orange)
 ![roles](https://img.shields.io/badge/roles-8-9cf)
+
+> 本 README 为用户向总览；总纲、场景路由与底线以 `dev-workflow/SKILL.md` 为准。
 
 ## 🧩 .skill 文件
 > .skill 文件是一种技能包格式，常用于某些 AI 平台（如 AI 助手、聊天机器人框架等），用来扩展 AI 的能力。比如你可以把“代码审查”、“工作流自动化”、“文档生成”等功能打包成一个 .skill 文件，然后 AI 就可以加载并调用它。
@@ -29,7 +31,8 @@ flowchart TD
     R -->|交接·onboarding| E[场景 E 技术架构交接 / Arch Handover]
     R -->|写测试·覆盖率| F[场景 F 自动化测试 / Automated Testing]
     R -->|复盘·回顾| G[场景 G 回顾性 / Retrospective]
-    A & B & C & D & E & F & G --> P[确认闸门 Confirm Gate<br/>回归测试硬门禁 Regression Gate<br/>UPDATE_LOG + 保鲜联动 Freshness Sync]
+    R -->|规格审查·自我审查| H[场景 H 规格审查 / Spec Review]
+    A & B & C & D & E & F & G & H --> P[确认闸门 Confirm Gate<br/>回归测试硬门禁 Regression Gate<br/>UPDATE_LOG + 保鲜联动 Freshness Sync]
 ```
 
 ---
@@ -38,10 +41,11 @@ flowchart TD
 
 | 中文 | English |
 |---|---|
-| **七场景统一路由** —— 按请求语义自动路由到 A~G 场景手册，复合任务按阶段切换场景 | **7-scenario unified routing** — auto-routes requests to scenario handbooks A–G; compound tasks switch scenarios per phase |
+| **八场景统一路由** —— 按请求语义自动路由到 A~H 场景手册，复合任务按阶段切换场景 | **8-scenario unified routing** — auto-routes requests to scenario handbooks A–H; compound tasks switch scenarios per phase |
 | **确认闸门** —— 未经用户明确确认，不修改任何代码、不产出正式文档；方案永远先于实施 | **Confirm gate** — no code changes or final documents without explicit user confirmation; plans always precede action |
 | **基于证据，不臆测** —— 结论引用具体文件与行号；文档禁止编造技术栈、版本号、表结构，缺失信息标注 `【待确认】` | **Evidence-based** — conclusions cite specific files and line numbers; no fabricated stack/version/schema; missing info is marked `[TBD]` |
 | **8 角色跨部门评审** —— 前端 / 后端 / DBA / QA / 架构师 / DevOps / 安全 / 产品，实施前按关注点矩阵评审，协作纪要随方案一并确认 | **8-role cross-functional review** — frontend/backend/DBA/QA/architect/DevOps/security/product review before implementation; minutes confirmed with the plan |
+| **自我审查闸门 + 规格审查** —— 各场景交付点前对照规格自查一次再交付；新增场景 H 规格审查（需求评审 / 接口契约 / 实现↔规格一致性） | **Self-review gate + Spec review** — self-check against the spec before every handoff; new scenario H for spec review (requirements / contracts / implementation↔spec) |
 | **回归测试硬门禁** —— 改动点反证 + 受影响路径回归 + 相关自动化用例，全部通过才算完成任务 | **Regression gate** — counter-proof of the change, regression of affected paths, and all related automated cases must pass |
 | **文档保鲜联动** —— 每次变更自动联动更新交接文档、C4 架构图、角色知识库 | **Doc freshness sync** — every change updates handover docs, C4 diagrams, and role knowledge bases |
 | **12 章编码规范** —— 命名 / 安全 / 接口 / 数据库 / 性能 / 依赖 / 配置等强制检查项，不满足不得宣称完成 | **12-chapter coding standards** — mandatory checks on naming/security/API/DB/performance/deps/config |
@@ -59,6 +63,7 @@ flowchart TD
 | **E 技术架构交接** Arch Handover | 架构盘点、交接文档、新人文档、onboarding / inventory, handover docs, onboarding | 范围确认 → 信息采集 → 大纲确认 → 逐册生成 → AI 索引 → 保鲜映射 / scope → collect → outline OK → volumes → AI index → freshness map |
 | **F 自动化测试** Automated Testing | 单测、集成测试、E2E、覆盖率、TDD、CI 测试 / unit, integration, E2E, coverage, TDD, CI | 策略 → 用例编写/执行 → 覆盖率补测 → CI 指引 → 回归门禁 / strategy → cases → coverage → CI guide → regression gate |
 | **G 回顾性** Retrospective | 复盘、回顾、事故复盘、项目健康度 / retrospective, post-mortem, health check | 选定类型 → 采集材料 → 输出报告 → 确认落点 / type → materials → report → archive |
+| **H 规格审查** Spec Review | 规格审查、需求评审、接口契约审查、对照规格、spec review、自我审查 / spec review, requirements review, contract review, review-against-spec | 理解对象 → 定维度 → 逐维审查 → 报告 → 确认 → 记录 / object → dimensions → review → report → confirm → record |
 
 ---
 
@@ -81,7 +86,7 @@ flowchart TD
 
 ```bash
 # 1. 克隆本仓库 / Clone the repository
-git clone https://github.com/<your-org>/dev-workflow.git
+git clone https://github.com/Arrowzzzzzz/dev-workflow.git
 cd dev-workflow
 
 # 2. 全局安装到 ~/.config/opencode/skills/<name>/SKILL.md
@@ -111,6 +116,8 @@ cp -r dev-workflow .opencode/skills/
 
 **从 .skill 压缩包安装 / Install from the .skill archive**
 
+> `.skill` 归档文件在 [GitHub Releases](https://github.com/Arrowzzzzzz/dev-workflow/releases) 下载；内含顶层 `dev-workflow/` 目录，解压即得完整 skill。
+
 ```bash
 # .skill 包内含顶层 dev-workflow/ 目录，解压即得完整 skill
 unzip dev-workflow.skill -d ~/.config/opencode/skills/   # opencode
@@ -132,6 +139,8 @@ unzip dev-workflow.skill -d ~/.workbuddy/skills/         # WorkBuddy
 "给新人写一份项目交接文档"            → 场景 E 技术架构交接 / Arch Handover
 "给核心模块补上单元测试"              → 场景 F 自动化测试 / Automated Testing
 "复盘一下这个迭代"                    → 场景 G 回顾性 / Retrospective
+"帮我评审一下这份需求文档"            → 场景 H 规格审查 / Spec Review
+"对照规格检查一下实现有没有跑偏"      → 场景 H 规格审查 / Spec Review
 ```
 
 ---
@@ -151,12 +160,14 @@ dev-workflow/
 │   ├── arch-handover-template.md   #   交接文档集模板（7 分册 + 影响映射表）/ Handover set template (7 volumes + impact map)
 │   ├── automated-testing.md        # F 自动化测试（含回归硬门禁细则）/ Automated Testing (incl. regression gate)
 │   ├── retrospective.md            # G 回顾性（4 类复盘模板）/ Retrospective (4 templates)
+│   ├── spec-review.md              # H 规格审查 / Spec Review
+│   ├── self-review.md              # 自我审查闸门 + 规格审查维度清单 / Self-review gate + spec-review dimensions
 │   ├── agents.md                   # 8 角色体系与跨角色沟通评审 / 8-role system & cross-role review
 │   ├── agent-knowledge-template.md # 角色知识库模板 / Role knowledge-base template
 │   ├── coding-standards.md         # 12 章编码规范与实施纪律 / 12-chapter coding standards
 │   └── diagrams.md                 # 图表规范（C4 / Mermaid / PlantUML）/ Diagram specs
 └── assets/                         # 共享模板 / Shared templates
-    ├── dev-workflow-overview.png   # 架构总览图 / Architecture overview diagram
+    ├── dev-workflow-overview.svg   # 架构总览图 / Architecture overview diagram
     ├── PLAN_TEMPLATE.md            # 实现方案模板 / Implementation plan template
     ├── UPDATE_LOG.md               # 更新记录模板 / Update log template
     └── agent-config-template.yaml  # 角色 → 模型映射配置 / Role → model mapping config
@@ -185,17 +196,6 @@ dev-workflow/
 | 更新记录 Update Log | `UPDATE_LOG.md` | 每次变更的结构化记录（最新在前，统一模板）/ structured change history (newest first) |
 | 交接文档集 Handover Docs | `docs/architecture/` | README 导航 + 7 分册 + C4 架构图 + 影响映射表 / README nav + 7 volumes + C4 diagrams + impact map |
 | 架构图源文件 Diagram Sources | `docs/architecture/diagrams/` | Mermaid / PlantUML 源文件 + 图清单表 / source files + diagram registry |
-
----
-
-## 📚 配套生态 · Ecosystem
-
-| 任务 Task | 建议使用 Recommended Skill |
-|---|---|
-| 写代码 / 修 bug / 排查 / 设计 / 交接文档 / 测试 / 复盘 / coding, fixing, auditing, designing, handover, testing, retro | **dev-workflow**（本技能 / this skill） |
-| 整理工作区改动为规范 commit / organized commits | git-commit-workflow |
-| 渗透测试与安全验证编排 / pentest & security verification | web-pentest-orchestrator |
-| 教学式讲解 / Socratic teaching | socratic-teaching |
 
 ---
 
