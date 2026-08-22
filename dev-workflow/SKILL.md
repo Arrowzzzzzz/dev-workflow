@@ -110,7 +110,7 @@ description: >-
 - 8 个按职责分工的角色（前端 UI / 后端开发 / 数据库 DBA / 测试 QA / 架构师 / DevOps / 安全 / 产品），定义与路由见 `references/agents.md`；
 - **跨角色沟通评审**：需求实现与修改代码之前，受影响角色按关注点矩阵依次评审，产出协作纪要随方案提交用户确认；
 - 角色知识库（`.devflow/agents/<role>.md`）首用时按 `references/agent-knowledge-template.md` 扫描项目生成，变更后增量更新；
-- 模型配置（`.devflow/agents/config.yaml`，模板见 `assets/agent-config-template.yaml`）：按角色配置模型；未配置使用当前 HARNESS 平台默认模型。技能只声明"角色 + 建议模型"，实际切换由运行平台执行。
+- 模型配置（`.devflow/agents/config.yaml`，模板见 `assets/agent-config-template.yaml`）：按角色×工具（zcode/opencode/dsh/codex/cc）配置模型；未配置使用当前 HARNESS 平台默认模型。技能只声明"角色 + 建议模型"，实际切换由运行平台执行——跨工具模型路由的适配器生成规则见 `references/agents.md` 第五节，各工具生成模板见 `assets/adapters/`。
 
 ### 自我审查闸门规范（各场景交付点前，强制）
 

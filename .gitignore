@@ -4,3 +4,6 @@
 # 编辑器
 .vscode/
 .idea/
+
+# ai agent
+.zcode/

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["@warp-dot-dev/opencode-warp"],
+  "agent": {
+    "frontend": { "model": "opencode-go/deepseek-v4-flash-vision-exp" },
+    "backend":  { "model": "opencode-go/deepseek-v4-flash" }
+  }
+}
