@@ -1,7 +1,7 @@
 ---
 name: <role>
 description: <角色名> 角色（agent teams 队友或 subagent 委派）
-model: sonnet       # 队友遵守该 model（取自 .devflow/agents/config.yaml 的 models.<role>.cc）；未配=跟随负责人
+model: inherit       # 队友遵守该 model（取自 .devflow/agents/config.yaml 的 models.<role>.cc；书写示例 sonnet / opus / haiku）；未配=跟随负责人
 tools: Read, Edit, Write, Bash, Glob, Grep, WebFetch
 ---
 

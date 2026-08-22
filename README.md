@@ -192,7 +192,8 @@ dev-workflow/
 | 产物 Artifact | 位置 Location | 说明 Description |
 |---|---|---|
 | 角色知识库 Role Knowledge | `.devflow/agents/*.md` | 8 角色按项目生成的领域知识，首用生成、变更后保鲜更新 / per-role domain knowledge, generated on first use, kept fresh on changes |
-| 模型映射 Model Mapping | `.devflow/agents/config.yaml` | 角色 → AI 模型映射（留空使用平台默认）/ role → model mapping (blank = platform default) |
+| 模型映射 Model Mapping | `.devflow/agents/config.yaml` | 角色 × 工具（zcode/opencode/dsh/codex/cc）→ AI 模型映射（留空跟随主会话；变更后自动同步）/ role×tool → model mapping (blank = follow session default; auto-synced on change) |
+| 工具适配器 Tool Adapters | `.devflow/agents/adapters/` 等 | 分工具模型路由配置（zcode/opencode/cc/dsh/codex），随 config.yaml 自动同步 / per-tool model-routing configs, auto-synced from config.yaml |
 | 更新记录 Update Log | `UPDATE_LOG.md` | 每次变更的结构化记录（最新在前，统一模板）/ structured change history (newest first) |
 | 交接文档集 Handover Docs | `docs/architecture/` | README 导航 + 7 分册 + C4 架构图 + 影响映射表 / README nav + 7 volumes + C4 diagrams + impact map |
 | 架构图源文件 Diagram Sources | `docs/architecture/diagrams/` | Mermaid / PlantUML 源文件 + 图清单表 / source files + diagram registry |

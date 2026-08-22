@@ -53,10 +53,11 @@
 - A/B/C 每次变更完成后：按影响映射表 + 角色归属，判定受影响的角色知识文件；
 - 增量更新受影响小节（技术栈变更 → §2；新组件 → §4；新契约 → §7；踩坑 → §8），不整篇重写；
 - 更新后在 UPDATE_LOG 记录知识库同步情况；
-- 发现知识文件与代码明显不符时，先更新再执行角色任务（使用规则见 agents.md）。
+- 每次使用某角色执行任务前也须核验其知识文件与项目现状一致（不只依赖变更后联动）；发现过期或明显不符，先增量更新再动手（使用规则见 agents.md）。
 
 ## 四、模型配置
 
-- 复制本技能 `assets/agent-config-template.yaml` 到项目 `.devflow/agents/config.yaml`；
-- 按角色配置模型标识（须为运行平台支持的模型名）；留空 = 使用当前 HARNESS 平台默认模型；
+- 复制本技能 `assets/agent-config-template.yaml` 到项目 `.devflow/agents/config.yaml`（技能调用时缺失会自动生成）；
+- 结构为 `models.<角色>.<工具>`（五工具：zcode / opencode / dsh / codex / cc）；留空 "" 或 inherit = 跟随主会话当前模型；模板不预置任何具体模型，由用户手动填写；
+- config.yaml 变更后按 agents.md 5.6 自动同步到各工具配置（快照类文件可用可选脚本 `assets/adapters/sync.py` 重生成）；
 - 技能执行时按 agents.md 角色路由声明角色与模型，实际切换由运行平台执行。

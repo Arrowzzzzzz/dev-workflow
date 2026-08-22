@@ -10,7 +10,9 @@ description: >-
   绘制架构图、自动化测试、复盘总结的请求都应使用本技能，即使用户没有明确说"按流程走"。核心底线：先理解现状、定位根因或
   澄清需求、输出结构化方案、经用户确认后才动手、复用优先与最小改动、自测与回归测试全部通过才算完成任务、最后写入
   UPDATE_LOG.md 并联动更新交接文档。本技能内置 8 个按职责分工的角色（前端/后端/DBA/QA/架构师/DevOps/安全/产品），
-  需求实现与修改代码之前执行跨角色沟通评审，角色知识库存于项目 .devflow/agents/，未配置角色模型时使用平台默认模型。
+  需求实现与修改代码之前执行跨角色沟通评审，角色知识库存于项目 .devflow/agents/，支持
+  zcode/opencode/dsh/codex/cc 分工具模型路由（.devflow/agents/config.yaml 声明，变更后自动同步到各工具配置），
+  未配置角色模型时跟随主会话默认模型。
   触发后先读本总纲，按「场景路由表」加载对应 references 场景手册，再按该手册完整执行，任何步骤不得跳过。
   Use for any code change / bug fix / review / design or handover document / automated testing /
   retrospective request to enforce an analyze-first, confirm-before-acting workflow.
@@ -97,6 +99,7 @@ description: >-
 ### UPDATE_LOG 规范
 
 - 统一模板见 `assets/UPDATE_LOG.md`；新记录追加在最上方（倒序，最新在前），字段逐项填写，保持格式统一；
+- 项目尚无 `UPDATE_LOG.md` 时：首次写入前以本技能 `assets/UPDATE_LOG.md` 为模板新建（各场景共用同一模板）；
 - 写入后与本次实际改动逐条核对，确保文档与代码一致。
 
 ### 图表规范（场景 D/E 绘图时）
@@ -104,6 +107,19 @@ description: >-
 - 所有架构图 / 部署图 / ER / 时序 / 流程 / 状态机图，按 `references/diagrams.md` 执行：Mermaid 为主（含官方 C4 语法），复杂部署图用 PlantUML 备选；
 - C4 分层（Context / Container / Component / Code）与图源资产管理（`docs/architecture/diagrams/` + 图清单表）见该手册；
 - 输出语法可验证源码 + 渲染指引，不强制实际渲染。
+
+### 调用时初始化与产物分层（进入项目后按需执行）
+
+本技能依赖的项目内产物分三层；初始化 = **首次调用完整初始化** + **每次场景入口轻量检查点**：
+
+- **首次调用（项目内第一次触发本技能）**：
+  - 第 1 层·立即生成：`.devflow/agents/config.yaml` 缺失则从模板复制生成（全 inherit 待用户填写），旧单维结构自动迁移为 `models.<角色>.<工具>` 分工具结构；随后按 `references/agents.md` 5.6 自动同步当前工具的适配器配置；
+  - 第 3 层登记：扫描 `UPDATE_LOG.md`、`docs/architecture/`（交接文档集与图清单）、`docs/retro/` 等是否已存在并记录现状，供各场景引用；**不预建任何场景型文档**；
+- **场景入口检查点（每次判定出场景后、动手前）**：按场景核对第 2 层依赖并按需补建：
+  - A/B/C：`UPDATE_LOG.md`（首次写入时若无按模板新建）；涉及角色的知识文件（首用生成 / 使用前核验更新）；影响映射表（仅当项目已有交接文档集）；
+  - F：「模块 ↔ 回归用例」映射清单无则先建立；
+  - 其余场景按各自手册的产出规则执行；
+- **第 3 层·场景触发型（不初始化）**：交接文档集（E）、图源文件与图清单（D/E）、《总体设计方案》文档（D）、复盘文档（G）、实现方案 PLAN（A/B）——仅在用户发起对应场景时生成。
 
 ### 角色与知识库规范（A/B/C 实施时）
 

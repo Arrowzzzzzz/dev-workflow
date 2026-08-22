@@ -1,16 +1,15 @@
 # .devflow/agents/config.yaml —— 角色 → 分工具模型映射（单一真相源）
-# 使用方式：复制本文件到项目根目录 .devflow/agents/config.yaml
+# 使用方式：复制本文件到项目根目录 .devflow/agents/config.yaml（技能调用时缺失会自动生成）
 # 结构：models.<角色>.<工具> = 模型标识
 # 取值规则：
-#   - 留空 "" 或写 inherit = 跟随主会话当前模型（默认）
-#   - 各工具模型标识示例（按运行平台支持的名称填写）：
+#   - 默认全部跟随主会话当前模型（inherit）：留空 "" 即可，无需逐个填写；
+#   - 本模板不预置任何具体模型——下方各工具的模型标识仅为书写示例，由用户按需手动填写：
 #     zcode:     glm-4.5-air / glm-4.5 / deepseek-v3 等（zcode 设置内可选模型）
 #     opencode:  opencode-go/deepseek-v4-flash 等（provider/model 全名）
 #     dsh:       deepseek-chat / deepseek-reasoner 等（LLM adapter 名）
 #     codex:     gpt-5.2 / gpt-5.1-codex 等
 #     cc:        sonnet / opus / haiku（或完整模型 id；用于 agent teams 队友）
-# 未配置的键默认 inherit，无需逐个填写。
-# 各工具适配器生成规则见 references/agents.md 第五节；生成模板见 assets/adapters/。
+# 变更本文件后按 references/agents.md 5.6 自动同步到各工具配置；生成模板见 assets/adapters/。
 
 models:
   frontend:            # 前端 UI
@@ -19,43 +18,43 @@ models:
     dsh: ""
     codex: ""
     cc: ""
-  backend:             # 后端开发（示例写法，未配置=inherit）
+  backend:             # 后端开发
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  database: {}         # 数据库 DBA：全部 inherit
+  database:            # 数据库 DBA
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  qa: {}               # 测试 QA
+  qa:                  # 测试 QA
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  architect: {}        # 架构师
+  architect:           # 架构师
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  devops: {}           # DevOps / 运维
+  devops:              # DevOps / 运维
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  security: {}         # 安全
+  security:            # 安全
     zcode: ""
     opencode: ""
     dsh: ""
     codex: ""
     cc: ""
-  product: {}          # 产品
+  product:             # 产品
     zcode: ""
     opencode: ""
     dsh: ""

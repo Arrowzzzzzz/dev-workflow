@@ -1,6 +1,7 @@
 # dsh subagent 描述符模板 —— .devflow/agents/adapters/dsh-subagents.yaml
-# 模型值取自 .devflow/agents/config.yaml 的 models.<role>.dsh（LLM adapter 注册表中的模型名），
-# 本文件是配置快照：工具侧配置已存在则复用，缺失才按本模板生成。
+# 模型值取自 .devflow/agents/config.yaml 的 models.<role>.dsh（LLM adapter 注册表中的模型名；
+# 书写示例见该文件注释，如 deepseek-chat / deepseek-reasoner）。留空或不写 model = 主会话默认。
+# 本文件是配置快照：可由 assets/adapters/sync.py 或执行 AI 按 agents.md 5.6 整体重生成。
 # provider 支持 spawn/fork/acp/codex/claude-code 等提供方（见 dsh LLM adapter 注册表文档）。
 
 subagents:
@@ -9,7 +10,7 @@ subagents:
     persona: 先读项目 .devflow/agents/frontend.md（角色知识库）再执行任务
     agentOptions:
       provider: <provider>      # 如 spawn / acp
-      model: deepseek-chat      # 取自 config.yaml models.frontend.dsh；未配 = 主会话默认
+      # model: ""               # 取自 config.yaml models.frontend.dsh；未配 = 主会话默认
     toolFilter: []              # 空或不写 = 不限制工具
 
   backend:
@@ -17,5 +18,5 @@ subagents:
     persona: 先读项目 .devflow/agents/backend.md（角色知识库）再执行任务
     agentOptions:
       provider: <provider>
-      model: deepseek-reasoner
+      # model: ""               # 取自 config.yaml models.backend.dsh；未配 = 主会话默认
     toolFilter: []

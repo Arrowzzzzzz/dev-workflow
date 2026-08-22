@@ -1,8 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "$comment": "opencode.json / opencode.jsonc 的 agent 段示例。model 取自项目 .devflow/agents/config.yaml 的 models.<role>.opencode；未配置（留空/inherit）时不写 model 键 = 跟随全局模型。下方 inherit 为占位写法，实际值由用户或 agents.md 5.6 自动同步填入。",
   "plugin": ["@warp-dot-dev/opencode-warp"],
   "agent": {
-    "frontend": { "model": "opencode-go/deepseek-v4-flash-vision-exp" },
-    "backend":  { "model": "opencode-go/deepseek-v4-flash" }
+    "frontend": { "model": "inherit" },
+    "backend": { "model": "inherit" }
   }
 }
